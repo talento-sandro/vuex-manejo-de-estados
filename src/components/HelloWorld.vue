@@ -9,6 +9,7 @@
     <u>
       <li v-for="(amigo, index) in $store.state.amigos" :key="index">
         {{amigo}}
+        <button @click="$store.dispatch('delAmigoAction', index)">Borrar</button>
       </li>
     </u>
   </div>
@@ -24,8 +25,9 @@ export default {
   },
   methods: {
     addAmigo() {
-      this.$store.state.amigo= this.amigo;
-      this.$store.dispatch('addAmigoAction');
+      //this.$store.state.amigo= this.amigo;
+      //this.$store.dispatch('addAmigoAction');
+      this.$store.dispatch('addAmigoAction', this.amigo)    // con argumentos
       this.amigo='';
     }
   }
